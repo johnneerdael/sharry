@@ -62,7 +62,10 @@ object RestServer {
     val templates = TemplateRoutes[F](cfg)
     for {
       restApp <- RestAppImpl.create[F](cfg, pools.connectEC)
-      client <- EmberClientBuilder.default[F].build
+      // Match server-side max-header-size so OAuth token/user calls to
+      // providers with chatty response headers (GitHub's X-* set) don't
+      // trip "HTTP Header Section Exceeds Max Size" during code flow.
+      client <- EmberClientBuilder.default[F].withMaxHeaderSize(32 * 1024).build
 
       httpApp = Router(
         "/api/v2/open/" -> openRoutes(cfg, client, restApp),
