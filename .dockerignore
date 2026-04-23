@@ -1,0 +1,39 @@
+.git
+.github
+.gitignore
+.gitattributes
+.direnv
+.envrc
+.envrc.template
+.mergify.yml
+.projectile
+.scalafix.conf
+.scalafmt.conf
+.git-blame-ignore-revs
+.claude
+
+# Build outputs — rebuilt inside the Docker builder
+target
+_site
+local
+elm-stuff
+result
+node_modules
+**/target
+**/node_modules
+**/elm-stuff
+
+# VPS-only artifacts
+docker/.env
+docker/*.log
+
+# Source branding assets (referenced from the repo root, shouldn't be in builds)
+2021-04-Netskope Primary-*.jpg
+2021-04-Netskope Primary-*.png
+favicon.png
+
+# Editor / OS cruft
+*.iml
+.idea
+.vscode
+.DS_Store

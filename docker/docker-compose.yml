@@ -1,8 +1,10 @@
 services:
   restserver:
     build:
-      context: .
-      dockerfile: sharry.dockerfile
+      # Build context is the repo root so the multi-stage builder can access
+      # build.sbt, modules/, project/, etc.
+      context: ..
+      dockerfile: docker/sharry.dockerfile
     image: johnneerdael/sharry:local
     container_name: sharry
     command: /opt/sharry.conf
