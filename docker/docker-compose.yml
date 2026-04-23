@@ -6,10 +6,10 @@ services:
     image: johnneerdael/sharry:local
     container_name: sharry
     command: /opt/sharry.conf
+    env_file:
+      - .env
     expose:
-      - 9090 # informational only
-    ports:
-      - "9090:9090"
+      - 9090 # reachable by Caddy on the shared network
     volumes:
       - ${PWD}/sharry.conf:/opt/sharry.conf
     healthcheck:
@@ -21,21 +21,37 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    networks:
+      - default
+      - caddy_net
   db:
     image: postgres:18.3
     container_name: postgres_db
+    env_file:
+      - .env
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=dbuser
-      - POSTGRES_PASSWORD=dbpass
-      - POSTGRES_DB=dbname
-      - PGUSER=dbuser
+      - PGUSER=${POSTGRES_USER}
     healthcheck:
-      test: pg_isready -q -d dbname
+      test: pg_isready -q -d ${POSTGRES_DB} -U ${POSTGRES_USER}
       interval: 15s
       timeout: 5s # pg_isready has a 3 second timeout by default so actually this doesn't matter very much
       retries: 3
       start_period: 15s
 volumes:
   postgres_data:
+
+# `caddy_net` is an externally-managed network shared with your Caddy stack.
+# Create it once on the host with:
+#   docker network create caddy_net
+# Then attach your Caddy container to the same network so it can reach
+# `sharry:9090`. Example Caddyfile:
+#   sharry.example.com { reverse_proxy sharry:9090 }
+#
+# If your Caddy is NOT containerized (runs on the host), remove the caddy_net
+# network stanza below and publish restserver locally, e.g.:
+#   ports: [ "127.0.0.1:9090:9090" ]
+networks:
+  caddy_net:
+    external: true
