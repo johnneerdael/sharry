@@ -43,6 +43,10 @@ object RestServer {
       .default[F]
       .withHost(cfg.bind.address)
       .withPort(cfg.bind.port)
+      // Raise from the Ember default so OAuth redirects carrying accumulated
+      // third-party cookies on the parent apex don't trigger
+      // "HTTP Header Section Exceeds Max Size" at the reverse proxy boundary.
+      .withMaxHeaderSize(32 * 1024)
       .withErrorHandler { case ex =>
         Logger[F]
           .error(ex)("Error processing request!")
