@@ -30,7 +30,10 @@ services:
     env_file:
       - .env
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      # Postgres 18+ expects the mount at /var/lib/postgresql; the image
+      # writes data into a major-version subdirectory so `pg_upgrade --link`
+      # can run without crossing mount boundaries.
+      - postgres_data:/var/lib/postgresql
     environment:
       - PGUSER=${POSTGRES_USER}
     healthcheck:
