@@ -1,7 +1,9 @@
-version: '3.7'
 services:
   restserver:
-    image: eikek0/sharry:latest
+    build:
+      context: .
+      dockerfile: sharry.dockerfile
+    image: johnneerdael/sharry:local
     container_name: sharry
     command: /opt/sharry.conf
     expose:

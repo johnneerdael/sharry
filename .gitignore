@@ -7,3 +7,8 @@ result
 node_modules/
 .direnv/
 .envrc
+
+# Source branding assets (one-off drops, not meant for repo)
+/2021-04-Netskope Primary-*.jpg
+/2021-04-Netskope Primary-*.png
+/favicon.png

@@ -1,22 +1,23 @@
+# Runtime image for Sharry (Netskope Secure File Transfer rebrand).
+# Consumes the pre-built zip at docker/sharry-restserver.zip. To refresh the zip
+# after source changes, run: ./docker/build-zip.sh
 FROM alpine:latest
 
-LABEL maintainer="eikek0 <news@eknet.org>"
-
-ARG version=
-ARG sharry_url=
-ARG TARGETPLATFORM
+LABEL maintainer="john@neerdael.nl"
 
 RUN apk -U add --no-cache openjdk17 tzdata unzip curl bash
 
 WORKDIR /opt
 
-RUN curl -L -o sharry.zip ${sharry_url:-https://github.com/eikek/sharry/releases/download/v$version/sharry-restserver-$version.zip} \
-  && unzip sharry.zip \
-  && rm sharry.zip \
-  && ln -snf sharry-restserver-* sharry
+# Build context must be the docker/ directory (see docker-compose.yml)
+COPY sharry-restserver.zip /opt/sharry.zip
 
-RUN addgroup -S user -g 10001 && \
-    adduser -SDH user -u 10001 -G user
+RUN unzip /opt/sharry.zip \
+    && rm /opt/sharry.zip \
+    && ln -snf sharry-restserver-* sharry \
+    && addgroup -S user -g 10001 \
+    && adduser -SDH user -u 10001 -G user
+
 USER 10001
 
 ENTRYPOINT ["/opt/sharry/bin/sharry-restserver"]
