@@ -1,7 +1,7 @@
 {
-    "name": "Sharry – a self-hosted file sharing web application",
-    "short_name": "Sharry",
-    "description": "Sharry allows to share files with others in a simple and convenient way.",
+    "name": "Netskope Secure File Transfer",
+    "short_name": "Netskope Secure File Transfer",
+    "description": "Netskope Secure File Transfer allows to share files with others in a simple and convenient way.",
     "icons": [
         {
             "src": "android-chrome-192x192.png",

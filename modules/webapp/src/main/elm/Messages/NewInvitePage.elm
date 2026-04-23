@@ -35,9 +35,9 @@ it =
     , message =
         [ p []
             [ text
-                """Sharry richiede un invito per registrarsi. 
-                Puoi creare l'invito qui ed inviarlo a chi vuoi 
-                per farli registrare a Sharry."""
+                """Netskope Secure File Transfer richiede un invito per registrarsi.
+                Puoi creare l'invito qui ed inviarlo a chi vuoi
+                per farli registrare a Netskope Secure File Transfer."""
             ]
         , p []
             [ text
@@ -64,9 +64,9 @@ es =
     , message =
         [ p []
             [ text
-                """Sharry requiere una invitación para registrarse. 
-                Puedes crear estas invitaciones aquí y enviarlas a tus amigos 
-                para que puedan registrarse en Sharry."""
+                """Netskope Secure File Transfer requiere una invitación para registrarse.
+                Puedes crear estas invitaciones aquí y enviarlas a tus amigos
+                para que puedan registrarse en Netskope Secure File Transfer."""
             ]
         , p []
             [ text
@@ -94,9 +94,9 @@ gb =
     , message =
         [ p []
             [ text
-                """Sharry requires an invite when signing up. You can
+                """Netskope Secure File Transfer requires an invite when signing up. You can
              create these invites here and send them to friends so
-             they can signup with Sharry."""
+             they can signup with Netskope Secure File Transfer."""
             ]
         , p []
             [ text
@@ -124,7 +124,7 @@ de =
     , message =
         [ p []
             [ text
-                """Sharry erfordert einen Code zum Registrieren. Sie können
+                """Netskope Secure File Transfer erfordert einen Code zum Registrieren. Sie können
              diese Codes hier erzeugen und ihn Freunden zukommen lassen, die
              sich dann hier registrieren können."""
             ]
@@ -153,8 +153,8 @@ fr =
     , message =
         [ p []
             [ text
-                """Sharry exige une invitation lors de l'inscription. 
-             Vous pouvez créer ces invitations ici et les envoyer à 
+                """Netskope Secure File Transfer exige une invitation lors de l'inscription.
+             Vous pouvez créer ces invitations ici et les envoyer à
              vos amis afin qu'ils puissent s'inscrire."""
             ]
         , p []
@@ -212,9 +212,9 @@ cz =
     , message =
         [ p []
             [ text
-                """Sharry vyžaduje při registraci pozvánku. Tyto 
+                """Netskope Secure File Transfer vyžaduje při registraci pozvánku. Tyto
              pozvánky můžete vytvářet zde a následně je zaslat uživatelům,
-              aby se mohli zaregistrovat v Sharry."""
+              aby se mohli zaregistrovat v Netskope Secure File Transfer."""
             ]
         , p []
             [ text

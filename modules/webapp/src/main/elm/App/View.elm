@@ -104,17 +104,15 @@ headerNavItem model =
             Page.href (LoginPage ( Nothing, False ))
         ]
         [ img
-            [ class "w-9 h-9 mr-2 block"
+            [ class "h-8 w-auto max-w-[200px] block"
+            , alt model.flags.config.appName
             , if model.uiTheme == Data.UiTheme.Light then
-                src model.flags.config.iconUrl
+                src model.flags.config.logoUrl
 
               else
-                src model.flags.config.iconUrlDark
+                src model.flags.config.logoUrlDark
             ]
             []
-        , div [ class "" ]
-            [ text model.flags.config.appName
-            ]
         ]
 
 
@@ -404,12 +402,8 @@ footer model =
     let
         defaultFooter =
             div [ class styleFooter ]
-                [ a
-                    [ href "https://eikek.github.io/sharry"
-                    , class S.link
-                    ]
-                    [ i [ class "ui github icon" ] []
-                    , text "Sharry "
+                [ span []
+                    [ text "Netskope Secure File Transfer "
                     ]
                 , span []
                     [ text model.version.version

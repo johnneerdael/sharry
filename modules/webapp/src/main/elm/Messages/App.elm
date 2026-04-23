@@ -37,7 +37,7 @@ it =
     , login = "Accedi"
     , register = "Registrazione"
     , lightDark = "Chiaro/Scuro"
-    , logoutSharry = "Esci da Sharry"
+    , logoutSharry = "Esci da Netskope Secure File Transfer"
     , logoutOAuth = "Esci dal fornitore di autenticazione"
     }
 
@@ -53,7 +53,7 @@ es =
     , login = "Iniciar sesión"
     , register = "Registrarse"
     , lightDark = "Claro/Oscuro"
-    , logoutSharry = "Cerrar sesión en Sharry"
+    , logoutSharry = "Cerrar sesión en Netskope Secure File Transfer"
     , logoutOAuth = "Cerrar sesión en tu proveedor de autenticación"
     }
 
@@ -70,7 +70,7 @@ gb =
     , login = "Login"
     , register = "Register"
     , lightDark = "Light/Dark"
-    , logoutSharry = "Logout from Sharry"
+    , logoutSharry = "Logout from Netskope Secure File Transfer"
     , logoutOAuth = "Logout at your authentication provider"
     }
 
@@ -87,7 +87,7 @@ de =
     , login = "Anmelden"
     , register = "Registrieren"
     , lightDark = "Hell/Dunkel"
-    , logoutSharry = "Von Sharry abmelden"
+    , logoutSharry = "Von Netskope Secure File Transfer abmelden"
     , logoutOAuth = "Abmelden nur über den Authentifizierungs-Provider möglich"
     }
 
@@ -104,7 +104,7 @@ fr =
     , login = "Connexion"
     , register = "Inscription"
     , lightDark = gb.lightDark
-    , logoutSharry = "Déconnexion de Sharry"
+    , logoutSharry = "Déconnexion de Netskope Secure File Transfer"
     , logoutOAuth = "Déconnexion de votre fournisseur d'authentification"
     }
 
